@@ -1,5 +1,8 @@
 # Initializing our blockchain
 blockchain = []
+open_transactions = []
+owner = 'Max'
+
 
 def get_last_blockchain_value():
     ''' Returns last value of our blockchain. '''
@@ -8,21 +11,28 @@ def get_last_blockchain_value():
     return blockchain[-1]
 
 
-def add_transaction(transaction_amount, last_transaction=[1]):
+def add_transaction(sender, recipient, amount=1.0):
     ''' Append a new value as well as last blockchain value to the blockchain. 
     
     Arguments:
-        : transaction_amount : The amount that should be added.
-        : last_transaction :The last blockchain transaction (default [1])
+        : sender : The amount that should be added.
+        : recipient : 
+        : recipient :The last blockchain transaction (default [1])
     '''
-    if last_transaction == None:
-        last_transaction = [1]
-    blockchain.append([last_transaction, transaction_amount])
+    transaction = {'sender': sender, 
+                    'recipient': recipient, 
+                    'amount': amount}
+    open_transactions.append()
 
+
+def mine_block():
+    pass
 
 def get_transaction_value():
     ''' Returns the input of the user (a new transaction amount) as a float. '''
-    return float(input('Your transaction amount please: '))
+    tx_recipient = input('Enter the recipient of the transaction: ')
+    tx_amount = float(input('Your transaction amount please: '))
+    return (tx_recipient, tx_amount)
 
 
 def get_user_choice():
